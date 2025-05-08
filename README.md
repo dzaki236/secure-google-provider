@@ -1,5 +1,5 @@
 ﻿# Secure google provider extends socialite package
-## Announcement from google
+## Announcement from google ✏️
 Since 2025 at february google announcement some  policy for oAuth certs, even if you used it for production and https scheme, you need 'certs' for more secure in oAuth v2.
 
 Sadly, Socialite package cannot provide to handle some secure certs ASAP.
@@ -9,12 +9,12 @@ Have you got error like ```curl error 60: SSL certificate problem: unable to get
 
 By using this package, you don't have to waste your time, take it easy, i got you..
 
-## Instalation
+## Instalation 📌
 Requirement :
 - Php^8.0
 - Laravel 8+ (even better using laravel 10+)
 - Socialite package (Any version with php ^8.0 compatiblity)
-### Step Installation
+### Step Installation 📝
 ```bash
 $ composer require dzaki236/secure-google-provider
 ```
@@ -34,7 +34,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 But.. you still got error when you use ```google``` at parameter on ```driver``` function, you need to change it, from ```google``` to ```secure-google```.
 
-By this example :
+### By this example :
 ```php
 Socialite::driver('secure-google')->redirect(); // For redirect, you will redirect to page oAuth by google services
 ```
