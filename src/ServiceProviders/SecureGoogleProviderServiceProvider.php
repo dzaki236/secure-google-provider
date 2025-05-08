@@ -2,7 +2,7 @@
 
 namespace Dzaki236\SecureGoogleProvider\ServiceProviders;
 
-use Dzaki236\SecureGoogleProvider\SecuringGoogleProvider;
+use Dzaki236\SecureGoogleProvider\Socialite\SecuringGoogleProvider;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Socialite\Facades\Socialite;
 
