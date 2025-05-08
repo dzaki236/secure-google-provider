@@ -1,5 +1,5 @@
 <?php
-
+// define("SAFE",true);
 namespace Dzaki236\SecureGoogleProvider\ServiceProviders;
 
 use Dzaki236\SecureGoogleProvider\Socialite\SecuringGoogleProvider;
@@ -8,11 +8,14 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SecureGoogleProviderServiceProvider extends ServiceProvider
 {
-    public function boot()
+    /**
+     * Bootstraping any application services from service provider.
+     * @return void;
+     */
+    public function boot(): void
     {
         Socialite::extend('secure-google', function ($app) {
             $config = $app['config']['services.google'];
-
             return new SecuringGoogleProvider(
                 $app['request'],
                 $config['client_id'],
