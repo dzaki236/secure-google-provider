@@ -17,10 +17,10 @@ class SecureGoogleProviderServiceProvider extends ServiceProvider
         Socialite::extend('secure-google', function ($app) {
             $config = $app['config']['services.google'];
             return new SecuringGoogleProvider(
-                $app['request'],
-                $config['client_id'],
-                $config['client_secret'],
-                $config['redirect']
+                request: $app['request'],
+                clientId: $config['client_id'],
+                clientSecret: $config['client_secret'],
+                redirectUrl: $config['redirect'],
             );
         });
     }
