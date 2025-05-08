@@ -1,1 +1,1 @@
-﻿# Secure google provider
+﻿# Secure google provider extends socialite package
