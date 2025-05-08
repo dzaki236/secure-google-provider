@@ -14,7 +14,7 @@ class SecuringGoogleProvider extends GoogleProvider
      */
     protected function getHttpClient(): Client
     {
-        return new Client([
+        return new Client(config: [
             'verify' => __DIR__ . '/../../certs/cacert.pem',
             // NOT RECOMMENDED WAY for production!
             /* 'verify' => false,*/
