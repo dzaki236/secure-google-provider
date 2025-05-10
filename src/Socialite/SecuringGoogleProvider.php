@@ -44,7 +44,7 @@ class SecuringGoogleProvider extends GoogleProvider
      */
     protected function getVerifyPath(): string|bool
     {
-        $verify = (!array_key_exists('force', $this->verifyConfig) || $this->verifyConfig['force'])
+        $verify = (!empty($this->verifyConfig['force']) || (!array_key_exists('force', $this->verifyConfig) || $this->verifyConfig['force']))
             ? __DIR__ . '/../../certs/cacert.pem'
             : false;
         return $verify;
