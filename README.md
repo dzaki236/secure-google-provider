@@ -42,6 +42,21 @@ To get user info after oAuth login state closed :
 ```php
 $social_user = Socialite::driver('secure-google')->user(); // For redirect, you will redirect to page oAuth by google services
 ```
+## Aditional Information (Optional Part) 💡
+Add this part on your ```config/services.php```, and you can forcing verify, you don't need cert for a while oAuth state is process
+```php
+    ....
+    'google' => [
+        ....
+        // Start from this part :
+        'verify' => [
+            'force' => false
+        ],
+        // End part
+    ],
+];
+```
+Warning⚠️ : Add and edit only ```google``` part, even you try to add this verify part outside, it won't effect anything.
 ## Credits
 - [Dzaki236](https://github.com/dzaki236)
 ## License
