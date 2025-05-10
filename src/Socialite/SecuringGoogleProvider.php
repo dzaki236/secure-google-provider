@@ -26,7 +26,7 @@ class SecuringGoogleProvider extends GoogleProvider
         $this->verifyConfig = $verifyConfig;
         parent::__construct($request, $clientId, $clientSecret, $redirectUrl);
     }
-    
+
     /**
      * Invoke Http Client function from parent.
      *
@@ -47,6 +47,10 @@ class SecuringGoogleProvider extends GoogleProvider
     protected function getVerifyPath(): string|bool
     {
         // Check if verify exist
-        return (!empty($this->verifyConfig) && $this->verifyConfig['force'] == false) ? __DIR__ . '/../../certs/cacert.pem' : false;
+        $defaultCertPath = __DIR__ . '/../../certs/cacert.pem';
+        // Use default cert unless 'force' is true
+        return (!empty($this->verifyConfig) && !empty($this->verifyConfig['force']) && $this->verifyConfig['force'] === true)
+            ? false
+            : $defaultCertPath;
     }
 }
