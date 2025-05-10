@@ -46,10 +46,6 @@ class SecuringGoogleProvider extends GoogleProvider
     {
 
         // Check if verify exist
-        if (!empty($this->verifyConfig['force']) && $this->verifyConfig['force'] == false) {
-            # code...
-            return __DIR__ . '/../../certs/cacert.pem';
-        }
-        return false;
+        return (!empty($this->verifyConfig) && $this->verifyConfig['force'] == false) ? __DIR__ . '/../../certs/cacert.pem' : false;
     }
 }
