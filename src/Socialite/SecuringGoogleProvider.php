@@ -8,9 +8,10 @@ use GuzzleHttp\Client;
 class SecuringGoogleProvider extends GoogleProvider
 {
     /**
-     * @var verifyConfig;
+     * @var array
      */
-    protected array $verifyConfig = array();
+    protected array $verifyConfig = [];
+
     /**
      * Invoke construction params.
      *
@@ -32,11 +33,20 @@ class SecuringGoogleProvider extends GoogleProvider
      */
     protected function getHttpClient(): Client
     {
-        $verify = !empty($this->verifyConfig['force'])
+        return new Client([
+            'verify' => $this->getVerifyPath(),
+        ]);
+    }
+    /**
+     * Invoke Http Client function from parent.
+     *
+     * @return string|bool
+     */
+    protected function getVerifyPath(): string|bool
+    {
+        $verify = (!array_key_exists('force', $this->verifyConfig) || $this->verifyConfig['force'])
             ? __DIR__ . '/../../certs/cacert.pem'
             : false;
-        return new Client([
-            'verify' => $verify,
-        ]);
+        return $verify;
     }
 }

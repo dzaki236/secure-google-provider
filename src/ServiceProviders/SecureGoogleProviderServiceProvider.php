@@ -16,7 +16,7 @@ class SecureGoogleProviderServiceProvider extends ServiceProvider
     {
         Socialite::extend('secure-google', function ($app) {
             $config = $app['config']['services.google'];
-            $verifyConfig = $app['config']['services.verify'];
+            $verifyConfig = $config['verify'] ?? []; // Access nested 'verify'
             return new SecuringGoogleProvider(
                 $app['request'],
                 $config['client_id'],
