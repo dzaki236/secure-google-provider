@@ -9,7 +9,7 @@ Have you got error like ```curl error 60: SSL certificate problem: unable to get
 
 By using this package, you don't have to waste your time, take it easy, i got you..
 
-## Instalation 📌
+## Installation 📌
 Requirement :
 - Php^8.0
 - Laravel 8+ (even better using laravel 10+)
